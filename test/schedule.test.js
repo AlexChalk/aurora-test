@@ -10,7 +10,6 @@ describe('schedule()', () => {
     const buildings = new Array(5)
       .fill(null)
       .map(() => SingleStoryHome.create());
-    const [home1, home2, home3, home4, home5] = buildings;
 
     const result = schedule(buildings, [employee]);
 
@@ -19,10 +18,10 @@ describe('schedule()', () => {
     const [employeeSchedule] = result;
 
     assert.strictEqual(employeeSchedule.employeeId, employee.id);
-    assert.strictEqual(employeeSchedule.monday, home1.id);
-    assert.strictEqual(employeeSchedule.tuesday, home2.id);
-    assert.strictEqual(employeeSchedule.monday, home3.id);
-    assert.strictEqual(employeeSchedule.monday, home4.id);
-    assert.strictEqual(employeeSchedule.monday, home5.id);
+    assert.strictEqual(employeeSchedule.monday, buildings[0].id);
+    assert.strictEqual(employeeSchedule.tuesday, buildings[1].id);
+    assert.strictEqual(employeeSchedule.wednesday, buildings[2].id);
+    assert.strictEqual(employeeSchedule.thursday, buildings[3].id);
+    assert.strictEqual(employeeSchedule.friday, buildings[4].id);
   });
 });
