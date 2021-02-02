@@ -1,6 +1,5 @@
 const { assert } = require('chai');
-const request = require('supertest');
-const app = require('../app');
+const schedule = require('../index');
 
 describe('Array', () => {
   describe('#indexOf()', () => {
@@ -8,10 +7,8 @@ describe('Array', () => {
       assert.equal([1, 2, 3].indexOf(4), -1);
     });
 
-    it('supports integration tests', async () => {
-      const response = await request(app).get('/');
-
-      assert.deepEqual(response.body, { data: 'Hello World' });
+    it('returns undefined', async () => {
+      assert.strictEqual(schedule(), undefined);
     });
   });
 });
