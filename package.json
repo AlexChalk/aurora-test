@@ -15,8 +15,14 @@
     "test": "mocha"
   },
   "dependencies": {
+    "uuid": "8.3.2",
+    "validator": "13.5.2",
+    "zod": "1.11.11"
   },
   "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/eslint-parser": "7.12.1",
+    "@babel/preset-env": "7.12.11",
     "chai": "4.2.0",
     "eslint": "7.19.0",
     "eslint-config-airbnb-base": "14.2.1",
@@ -27,11 +33,22 @@
   },
   "eslintConfig": {
     "env": {
+      "es6": true,
       "node": true,
       "mocha": true
     },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "ecmaVersion": 12
+    },
     "extends": [
       "airbnb-base"
-    ]
+    ],
+    "rules": {
+      "class-methods-use-this": "off",
+      "no-underscore-dangle": "off",
+      "no-use-before-define": "off",
+      "no-restricted-syntax": "off"
+    }
   }
 }
