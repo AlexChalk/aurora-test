@@ -49,6 +49,14 @@ class EmployeeSchedule extends AbstractEntity {
   get employeeId() {
     return this.#employee.id;
   }
+
+  get employeeQualification() {
+    return this.#employee.qualification;
+  }
+
+  hasOpening(day) {
+    return this.#employee.isAvailable(day) && this[day] === noBuilding.id;
+  }
 }
 
 module.exports = EmployeeSchedule;
