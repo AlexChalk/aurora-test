@@ -1,3 +1,5 @@
+const { v4: uuidv4 } = require('uuid');
+
 const AbstractEntity = require('./abstract-entity');
 
 class SingleStoryHome extends AbstractEntity {
@@ -6,6 +8,10 @@ class SingleStoryHome extends AbstractEntity {
   constructor({ id, isScheduled }) {
     super(id);
     this.#isScheduled = isScheduled;
+  }
+
+  static create() {
+    return new SingleStoryHome({ id: uuidv4(), isScheduled: false });
   }
 
   _canBeScheduled(day, schedules) {
